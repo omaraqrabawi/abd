@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>اعتذار لعبد الله</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Cairo', sans-serif;
+      color: #fff;
+      text-align: center;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fcb69f, #ffdde1);
+      background-size: 400% 400%;
+      animation: gradientBG 12s ease infinite;
+      font-size: 14px;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      z-index: 100;
+      cursor: pointer;
+      backdrop-filter: blur(8px);
+    }
+
+    .overlay h1 {
+      font-size: 2em;
+      color: #fff;
+      text-shadow: 0 0 10px #ff4d6d, 0 0 20px #ff4d6d;
+      animation: pulseText 1.5s infinite;
+      margin: 0 20px;
+    }
+
+    @keyframes pulseText {
+      0%,100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.1); opacity: 0.8; }
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 25px;
+      border-radius: 15px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 4px 25px rgba(0,0,0,0.3);
+      animation: float 3s ease-in-out infinite;
+      max-width: 300px;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0px); }
+    }
+
+    .card img {
+      max-width: 120px;
+      border-radius: 50%;
+      margin-bottom: 15px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.4);
+    }
+
+    h1 {
+      font-size: 1.8em;
+      margin-bottom: 15px;
+      margin-top: 0;
+    }
+
+    p {
+      font-size: 1em;
+      line-height: 1.4;
+      margin: 0;
+    }
+
+    .heart {
+      font-size: 2.5em;
+      color: #ff4d6d;
+      margin-top: 15px;
+      animation: pulse 1s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 8px 25px;
+      border: none;
+      border-radius: 25px;
+      font-size: 0.9em;
+      cursor: pointer;
+      color: #fff;
+      background: linear-gradient(to right, #ff4d6d, #ff758c);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s, background 0.3s;
+      position: relative;
+    }
+
+    button:hover {
+      transform: scale(1.07);
+      background: linear-gradient(to right, #ff758c, #ff4d6d);
+    }
+
+    .hearts-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .hearts-bg span {
+      position: absolute;
+      bottom: -50px;
+      font-size: 1.5em;
+      color: rgba(255, 255, 255, 0.9);
+      animation: hearts 10s linear infinite;
+    }
+
+    @keyframes hearts {
+      0% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100vh) translateX(100px) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay" id="overlay">
+    <h1>اكبس ي بقور </h1>
+  </div>
+
+  <div class="hearts-bg">
+    <span style="left: 10%;">❤️</span>
+    <span style="left: 30%; animation-delay: 2s;">💖</span>
+    <span style="left: 50%; animation-delay: 4s;">❤️</span>
+    <span style="left: 70%; animation-delay: 6s;">💖</span>
+    <span style="left: 90%; animation-delay: 8s;">❤️</span>
+  </div>
+
+  <div class="card" id="card">
+    <img src="abdullah.jpg" alt="عبد الله" />
+    <h1>إلى صديقي عبد الله ❤️</h1>
+    <p>
+      بقور انتا غالي و حقك علي.<br />
+      انتا غالي تعال العب بمالي💋<br />
+      حبيبي بقور
+    </p>
+    <div class="heart">❤️</div>
+    <button onclick="alert(' رن علي ')">اه؟</button>
+    <button id="noBtn">لا</button>
+  </div>
+
+  <audio id="bgMusic" loop>
+    <source src="Iframe حالات واتس صاحبي ياصاحبي لو يوم فرقت هيولع قلبي انتا اخويا شقيقي وربي و مفكرش في يوم انساك ❤👇 [fZxMXiccINg].mp3" type="audio/mp3" />
+    متصفحك لا يدعم الصوت.
+  </audio>
+
+  <script>
+    const overlay = document.getElementById('overlay');
+    const card = document.getElementById('card');
+    const music = document.getElementById('bgMusic');
+    const noBtn = document.getElementById('noBtn');
+
+    overlay.addEventListener('click', () => {
+      overlay.style.display = 'none';
+      card.style.display = 'flex';
+      music.play().catch(() => console.log("يجب التفاعل لتشغيل الصوت"));
+    });
+
+    // حركة زر "لا"
+    noBtn.addEventListener('mouseover', () => {
+      const x = Math.random() * 200 - 100;
+      const y = Math.random() * 200 - 100;
+      noBtn.style.transform = `translate(${x}px, ${y}px)`;
+    });
+  </script>
+</body>
+</html>
